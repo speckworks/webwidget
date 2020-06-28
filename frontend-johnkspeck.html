@@ -55,16 +55,15 @@ align-items: center;
     align-items: left;
     z-index: 2;
 }
-/* 
+
 .student-progress::before{
     content: attr(data-label);
-    font-size: 0.8em;
+    font-size: 1.2em;
     position: absolute;
-    text-align: center;
-    top: 5px;
-    left: 0;
-    right: 0;
-} */
+    text-align: left;
+    padding: 10px 15px;
+    z-index:3;
+}
 
 
 .student1-progress-fill{
@@ -73,6 +72,7 @@ align-items: center;
     border-radius: 90px / 75px;
     border: 2px solid gray;
     padding: 3px;
+    width: 42%;
 }
 
 .student2-progress-fill{
@@ -80,7 +80,7 @@ align-items: center;
     border-radius: 90px / 75px;
     border: 2px solid gray;
     padding: 3px;
-
+    width: 47%;
 }
 
 .student3-progress-fill{
@@ -88,7 +88,7 @@ align-items: center;
     border-radius: 90px / 75px;
     border: 2px solid gray;
     padding: 3px;
-
+    width: 53%;
 }
 
 .student-name{
@@ -99,6 +99,13 @@ align-items: center;
     font-weight: normal;
     padding: 2px;
 }
+.student-scores::before{
+    content: attr(data-label);
+    font-size: 1em;
+    position: absolute;
+    padding: 0px;
+    z-index:3;
+}
 
 </style>
 <header id="top">
@@ -106,32 +113,29 @@ align-items: center;
 </header>
 <div class="performance">
     <div id="scores-title">Low Students</div>
-    <div class="student-progress">
+    <div class="student-progress" data-label="Student Name">
         <div class="student1-progress-fill">
-            <div class="student-name">Student Name
+            <div class="student-name">
                 <br>
-                <div class="student-scores">
-                    SPI:42%   SPC:93%  ODC:95%  E&E:87%
+                <div class="student-scores" data-label="SPI:42%   SPC:93%  ODC:95%  E&E:87%">
                 </div>
             </div>
         </div>  
     </div>
-    <div class="student-progress">
+    <div class="student-progress" data-label="Student Name">
         <div class="student2-progress-fill">
-            <div class="student-name">Student Name
+            <div class="student-name" >
                 <br>
-                <div class="student-scores">
-                SPI:47%   SPC:93%  ODC:95%  E&E:87%
+                <div class="student-scores" data-label="SPI:47%   SPC:93%  ODC:95%  E&E:87%">
                 </div>
             </div>
         </div>    
     </div>
-    <div class="student-progress">
+    <div class="student-progress" data-label="Student Name">
         <div class="student3-progress-fill">
-            <div class="student-name">Student Name
+            <div class="student-name">
                 <br>
-                <div class="student-scores">
-                SPI:53%   SPC:93%  ODC:95%  E&E:87%
+                <div class="student-scores" data-label=" SPI:53%   SPC:93%  ODC:95%  E&E:87%">
                 </div>
             </div>
         </div>  
