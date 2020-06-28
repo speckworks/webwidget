@@ -1,0 +1,16 @@
+Hide   Copy Code
+/* #aWidget{
+ margin:2;
+ padding:5;
+ font:Arial;
+ font-size:larger;
+ font-weight:bold;
+ width:"500px";
+ height:"400px";
+}
+
+.student{
+    height:56px;
+    width:423px;
+    border-radius: 90px / 45px;
+} */
