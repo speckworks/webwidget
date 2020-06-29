@@ -113,7 +113,7 @@ align-items: center;
 </header>
 <div class="performance">
     <div id="scores-title">Low Students</div>
-    <div class="student-progress" data-label="Student Name" role="list">
+    <!-- <div class="student-progress" data-label="Student Name" role="list">
         <div class="student1-progress-fill" role="listitem">
             <div class="student-name">
                 <br>
@@ -139,10 +139,22 @@ align-items: center;
                 </div>
             </div>
         </div>  
-    </div>
+    </div> -->
 </div>
 
 <script>
+
+let scores = [42, 47, 53]
+
+scores.forEach(score => {
+let studentProgress = document.createElement("div");
+studentProgress.className = "student-progress"
+studentProgress.dataLabel = 
+
+})
+
+
+
 const progressBarFill1 = document.querySelector('.student1-progress-fill');
 progressBarFill1.style.width = `${42}%`
 
