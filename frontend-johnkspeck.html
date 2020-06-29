@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<main lang="en" class="main">
+<main lang="en" class="main" role="main">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Widget</title>
 </head>
 <style>
 
@@ -13,47 +13,48 @@ display: flex;
 flex-direction: column;
 align-items: center;
 text-align: center;
-padding: 0px 0px 25px 0px; 
-width:50vw;
+padding: 0px 0vw 3vw 0vw; 
+width:40vw;
 border: 2px solid#BCBCBC;
 }
 
-#top{
+#header{
 display:flex;
 font-family: Georgia, serif;
- width:100%;
+ width:40vw;
  height:5rem;
  background-color: #f4f4f4;
- font-size: 32px;
+ font-size: 2em;
 justify-content: center;
 align-items: center;
 }
 
 .performance{
-    padding:10px;
-    margin:0px;
+    display:flex;
+    flex-direction: column; 
+    align-items: center; 
 }
 #scores-title{
-    margin: 10px;
+    margin: 1vh;
     text-align: center;
     padding: 5px;
-    font-family: Verdana, Geneva, sans-serif;
-    font-weight: bold;
+    font-size: 1.5vw;
+    font-family: Verdana, sans-serif;
+    transform: translate(0px, 50%);
 }
 .student-progress{
     display: flex;
-    font-family: Palatino, "Palatino Linotype";
+    font-family: "Palatino Linotype", sans-serif;
     font-weight: bold;
-    margin: 1vh;
+    margin: 1vw;
     height: 4rem;
-    width:41vw;
+    width:34vw;
     border-radius: 90px / 75px;
     background-color: white;
-    border: 2px solid gray;
+    border: 1px solid gray;
     text-align: center;
     justify-content: left;
     align-items: left;
-    z-index: 2;
 }
 
 .student-progress::before{
@@ -62,84 +63,93 @@ align-items: center;
     position: absolute;
     text-align: left;
     padding: 10px 15px;
-    z-index:3;
+    opacity: .6;
 }
 
 
 .student1-progress-fill{
-    z-index: 1;
     background-color: #94b7b0;
     border-radius: 90px / 75px;
-    border: 2px solid gray;
+    border: 1px solid gray;
     padding: 3px;
-    width: 42%;
+    width: 0%;
 }
 
 .student2-progress-fill{
     background-color: #c1cb98;
     border-radius: 90px / 75px;
-    border: 2px solid gray;
+    border: 1px solid gray;
     padding: 3px;
-    width: 47%;
+    width: 0%;
 }
 
 .student3-progress-fill{
     background-color: #dfe0bf;
     border-radius: 90px / 75px;
-    border: 2px solid gray;
+    border: 1px solid gray;
     padding: 3px;
-    width: 53%;
+    width: 0%;
 }
 
 .student-name{
     text-align: left;
-    padding: .5em;
+    padding: .6em;
 }
 .student-scores{
-    font-weight: normal;
-    padding: 2px;
+    font-size: .1vw;
+    font-weight: lighter;
+    padding: .1em;
+    opacity: .6;
 }
 .student-scores::before{
     content: attr(data-label);
-    font-size: 1em;
+    font-size: 1.7vw;
     position: absolute;
     padding: 0px;
-    z-index:3;
 }
-
 </style>
-<header id="top">
-    <div>Class Performance</div>
+<header id="header">
+    <div>Class Performance &nbsp; &#9432</div>
 </header>
 <div class="performance">
     <div id="scores-title">Low Students</div>
-    <div class="student-progress" data-label="Student Name">
-        <div class="student1-progress-fill">
+    <div class="student-progress" data-label="Student Name" role="list">
+        <div class="student1-progress-fill" role="listitem">
             <div class="student-name">
                 <br>
-                <div class="student-scores" data-label="SPI:42%   SPC:93%  ODC:95%  E&E:87%">
+                <div class="student-scores" data-label="SPI: 42%    SPC: 93%  ODC: 95%   E&E:87%">
                 </div>
             </div>
         </div>  
     </div>
-    <div class="student-progress" data-label="Student Name">
+    <div class="student-progress" data-label="Student Name" role="listitem">
         <div class="student2-progress-fill">
             <div class="student-name" >
                 <br>
-                <div class="student-scores" data-label="SPI:47%   SPC:93%  ODC:95%  E&E:87%">
+                <div class="student-scores" data-label="SPI: 47%    SPC: 93%   ODC: 95%   E&E:87%">
                 </div>
             </div>
         </div>    
     </div>
-    <div class="student-progress" data-label="Student Name">
+    <div class="student-progress" data-label="Student Name" role="listitem">
         <div class="student3-progress-fill">
             <div class="student-name">
                 <br>
-                <div class="student-scores" data-label=" SPI:53%   SPC:93%  ODC:95%  E&E:87%">
+                <div class="student-scores" data-label=" SPI: 53%    SPC: 93%   ODC: 95%   E&E:87%">
                 </div>
             </div>
         </div>  
     </div>
 </div>
+
+<script>
+const progressBarFill1 = document.querySelector('.student1-progress-fill');
+progressBarFill1.style.width = `${42}%`
+
+const progressBarFill2 = document.querySelector('.student2-progress-fill');
+progressBarFill2.style.width = `${47}%`
+
+const progressBarFill3 = document.querySelector('.student3-progress-fill');
+progressBarFill3.style.width = `${53}%`
+</script>
 </main>
- <!-- <script defer src="widget.js"></script> -->
