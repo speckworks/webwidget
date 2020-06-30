@@ -55,6 +55,7 @@ align-items: center;
     text-align: center;
     justify-content: left;
     align-items: left;
+    
 }
 
 .student-progress::before{
@@ -64,6 +65,7 @@ align-items: center;
     text-align: left;
     padding: 10px 15px;
     opacity: .6;
+    z-index: 3;
 }
 
 .student-progress-fill{
@@ -71,6 +73,8 @@ align-items: center;
     border: 1px solid gray;
     padding: 3px;
     width: 0%;
+    position: relative;
+    transform: translate(-45%);
 }
 
 /* 
@@ -110,8 +114,10 @@ align-items: center;
 }
 .student-scores::before{
     content: attr(data-label);
+    width: 200%;
     font-size: 1.7vw;
     position: absolute;
+    transform: translate(-7%,50%);
     padding: 0px;
 }
 </style>
@@ -156,7 +162,7 @@ let progInserter = document.querySelector("#scores-title");
 
 const createPBar = (score,color) => {
      let progBarGuts;
-     progBarGuts += `<div class="student-progress-fill" style="width:${score}%; background-color:${color}; transform: translate(-30%,0); position:relative; z-index:1">
+     progBarGuts += `<div class="student-progress-fill" style="width:${score}%; background-color:${color};">
                             <div class="student-name" >
                                 <br>
                                 <div class="student-scores" data-label="SPI: ${score}  SPC: 93%   ODC: 95%   E&E:87%" style="width:100%">
@@ -164,7 +170,7 @@ const createPBar = (score,color) => {
                             </div>
                         </div>    
                     `
-    return ` <div class="student-progress" data-label="Student Name" role="listitem" style="position:relative; z-index:3">
+    return ` <div class="student-progress" data-label="Student Name" role="listitem">
                     ${progBarGuts}
                     </div>
     `
@@ -172,10 +178,6 @@ const createPBar = (score,color) => {
 
 for(let i = 0; i < scores.length; i++){
 progInserter.innerHTML += createPBar(scores[i], colors[i]);
-}
-const createPFill = (color) =>{
-    let colorInserter = document.querySelector(".student-progress-fill");
-    colorInserter.style.backgroundColor += `${color}` 
 }
 
 </script>
