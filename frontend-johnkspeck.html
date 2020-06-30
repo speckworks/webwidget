@@ -67,7 +67,6 @@ align-items: center;
 }
 
 .student-progress-fill{
-    background-color: #94b7b0;
     border-radius: 90px / 75px;
     border: 1px solid gray;
     padding: 3px;
@@ -150,41 +149,34 @@ align-items: center;
     </div> -->
 </div>
 
-<script>
+<script type="text/javascript">
 let scores = [42, 47, 53];
 let colors = ["#94b7b0","#c1cb98","#dfe0bf"];
-let progInserter = document.getElementById("#scores-title");
+let progInserter = document.querySelector("#scores-title");
 
-progInserter.appendChild(scores.forEach(score => {
-    return createPBar(score);
-})
-);
-
-const createPBar = (score) => {
+const createPBar = (score,color) => {
      let progBarGuts;
-     progBarGuts += `<div class="student2-progress-fill">
+     progBarGuts += `<div class="student-progress-fill" style="width:${score}%; background-color:${color}; transform: translate(-30%,0); position:relative; z-index:1">
                             <div class="student-name" >
                                 <br>
-                                <div class="student-scores" data-label="SPI: ${score}  SPC: 93%   ODC: 95%   E&E:87%">
+                                <div class="student-scores" data-label="SPI: ${score}  SPC: 93%   ODC: 95%   E&E:87%" style="width:100%">
                                 </div>
                             </div>
                         </div>    
                     `
-    return ` <div class="student-progress" data-label="Student Name" role="listitem">
+    return ` <div class="student-progress" data-label="Student Name" role="listitem" style="position:relative; z-index:3">
                     ${progBarGuts}
                     </div>
     `
 }
 
+for(let i = 0; i < scores.length; i++){
+progInserter.innerHTML += createPBar(scores[i], colors[i]);
+}
+const createPFill = (color) =>{
+    let colorInserter = document.querySelector(".student-progress-fill");
+    colorInserter.style.backgroundColor += `${color}` 
+}
 
-
-const progressBarFill1 = document.querySelector('.student1-progress-fill');
-progressBarFill1.style.width = `${42}%`
-
-const progressBarFill2 = document.querySelector('.student2-progress-fill');
-progressBarFill2.style.width = `${47}%`
-
-const progressBarFill3 = document.querySelector('.student3-progress-fill');
-progressBarFill3.style.width = `${53}%`
 </script>
 </main>
