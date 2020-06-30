@@ -40,7 +40,7 @@ align-items: center;
     padding: 5px;
     font-size: 1.5vw;
     font-family: Verdana, sans-serif;
-    transform: translate(0px, 50%);
+    /* transform: translate(0px, 50%); */
 }
 .student-progress{
     display: flex;
@@ -66,7 +66,15 @@ align-items: center;
     opacity: .6;
 }
 
+.student-progress-fill{
+    background-color: #94b7b0;
+    border-radius: 90px / 75px;
+    border: 1px solid gray;
+    padding: 3px;
+    width: 0%;
+}
 
+/* 
 .student1-progress-fill{
     background-color: #94b7b0;
     border-radius: 90px / 75px;
@@ -89,7 +97,7 @@ align-items: center;
     border: 1px solid gray;
     padding: 3px;
     width: 0%;
-}
+} */
 
 .student-name{
     text-align: left;
@@ -143,15 +151,30 @@ align-items: center;
 </div>
 
 <script>
+let scores = [42, 47, 53];
+let colors = ["#94b7b0","#c1cb98","#dfe0bf"];
+let progInserter = document.getElementById("#scores-title");
 
-let scores = [42, 47, 53]
-
-scores.forEach(score => {
-let studentProgress = document.createElement("div");
-studentProgress.className = "student-progress"
-studentProgress.dataLabel = 
-
+progInserter.appendChild(scores.forEach(score => {
+    return createPBar(score);
 })
+);
+
+const createPBar = (score) => {
+     let progBarGuts;
+     progBarGuts += `<div class="student2-progress-fill">
+                            <div class="student-name" >
+                                <br>
+                                <div class="student-scores" data-label="SPI: ${score}  SPC: 93%   ODC: 95%   E&E:87%">
+                                </div>
+                            </div>
+                        </div>    
+                    `
+    return ` <div class="student-progress" data-label="Student Name" role="listitem">
+                    ${progBarGuts}
+                    </div>
+    `
+}
 
 
 
